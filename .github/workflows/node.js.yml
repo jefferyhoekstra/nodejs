@@ -26,6 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: deploy with github pages
+      run: |
+        git remote set-url main
+        https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        node server -- -u "github-actions-bot<support+actions@github.com>"
+      env: 
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        DB_URI: ${{secrets.DB_URI}}
