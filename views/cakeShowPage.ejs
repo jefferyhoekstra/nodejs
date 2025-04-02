@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= cake.name %>></title>
+</head>
+<body>
+    <h1><%= cake.name %></h1>
+    <img src=<%= cake.image %> alt="" width="300px">
+    <h3>Type: <%= cake.type %></h3>
+    <p>Prices:</p>
+    <ul>
+        <li>8 inches: $<%= cake.price["8 inch"]%></li>
+        <li>10 inches: $<%= cake.price["10 inch"]%></li>
+        <li>12 inches: $<%= cake.price["12 inch"]%></li>
+    </ul>
+
+    <a href="/cakes/<%= cake._id %>/edit"><button>Edit Cake</button></a>
+
+</body>
+</html>

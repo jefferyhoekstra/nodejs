@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakes</title>
+</head>
+<nav>
+    <a href="/"><img src="/images/logo.jpg" alt="" width="50px"></a>
+    <a href="/cakes/new">Add a cake</a>
+    <a href="/cakes/newOrder">Add a order</a>
+</nav>
+<body>
+    <% for(let i = 0; i < cakes.length; i++) { %>
+        <div>
+            <a href="/cakes/<%=cakes[i]._id%>"><img src=<%= cakes[i].image %> alt="" width="100px"></a>
+            <form action="/cakes/<%=cakes[i]._id %>?_method=DELETE" method="post">
+                <button>Delete</button>
+            </form>
+        </div>
+    <% } %>
+</body>
+</html>
